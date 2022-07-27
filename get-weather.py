@@ -7,6 +7,7 @@ def configure():
 
 def get_city():
     city = input("Which city's weather would you like to know? ")
+    return city
 
 def main():
     configure()
@@ -17,13 +18,19 @@ def main():
 
     city = get_city()
 
+    print(city)
+
     request_url = f"{base_url}?q={city}&appid={api_key}" 
 
     response = requests.get(request_url)
 
     if response.status_code == 200:
         data = response.json()
-        print(data)
+        # print(data)
+        weather = data["weather"][0]["description"]
+        print(weather)
+        temperature = data["main"]["temp"]
+        print(temperature)
     else:
         print(f"An error occurred {response.status_code}")
 
