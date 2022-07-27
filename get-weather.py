@@ -18,8 +18,6 @@ def main():
 
     city = get_city()
 
-    print(city)
-
     request_url = f"{base_url}?q={city}&appid={api_key}" 
 
     response = requests.get(request_url)
@@ -29,7 +27,7 @@ def main():
         # print(data)
         weather = data["weather"][0]["description"]
         print(weather)
-        temperature = data["main"]["temp"]
+        temperature = round(data["main"]["temp"] - 273.15, 2)
         print(temperature)
     else:
         print(f"An error occurred {response.status_code}")
