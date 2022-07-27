@@ -26,9 +26,9 @@ def main():
         data = response.json()
         # print(data)
         weather = data["weather"][0]["description"]
-        print(f"weather: {weather}")
+        print(f"Weather: {weather}")
         temperature = round(data["main"]["temp"] - 273.15, 2)
-        print(f"temperature: {temperature} C")
+        print(f"Temperature: {temperature} C")
     else:
         print(f"An error occurred {response.status_code}")
 
