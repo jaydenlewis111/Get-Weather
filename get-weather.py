@@ -2,14 +2,14 @@ import requests
 from dotenv import load_dotenv
 import os
 
-def configure():
+def configure() -> None:
     load_dotenv()
 
-def get_city():
+def get_city() -> str:
     city = input("Which city's weather would you like to know? ")
     return city
 
-def get_weather(base_url, city, api_key):
+def get_weather(base_url: str, city: str, api_key: str) -> None:
     request_url = f"{base_url}?q={city}&appid={api_key}&units=metric" 
 
     response = requests.get(request_url)
