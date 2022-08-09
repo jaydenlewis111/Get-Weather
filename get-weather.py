@@ -16,9 +16,9 @@ def get_weather(base_url: str, city: str, api_key: str) -> None:
 
     if response.status_code == 200:
         data = response.json()
-        # print(data)
         weather = data["weather"][0]["description"]
         print(f"Weather: {weather}")
+        
         temperature = data["main"]["temp"]
         print(f"Temperature: {temperature} C")
 
